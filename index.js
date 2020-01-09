@@ -4,7 +4,28 @@ import Hello from './Hello';
 import './style.css';
 
 class Blog  extends Component{
-  
+  constructor(props){
+    super(props);
+    this.state ={
+      names:[
+        'Armando',
+        'Jaz',
+        'Mariana'
+      ]
+    };
+  }
+
+  render(){
+    return(
+      <div>
+        {
+          this.state.names.map((name)=> {
+            return <p>{name}</p>
+          })
+        }
+      </div>
+    )
+  }
 }
 
 class App extends Component {
@@ -18,10 +39,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <Blog />
       </div>
     );
   }
